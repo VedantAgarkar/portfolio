@@ -1,1 +1,4 @@
-.agent
+node_modules/
+dist/
+.planning/
+*.local
