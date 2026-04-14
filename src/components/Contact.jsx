@@ -13,6 +13,13 @@ export default function Contact() {
   const [contactEndpoint, setContactEndpoint] = useState('')
   const [handshakeState, setHandshakeState] = useState('idle') // idle | running | done
   const [currentStep, setCurrentStep] = useState(-1)
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('agarkarvedant@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   const handleHandshake = (e) => {
     e.preventDefault()
@@ -44,6 +51,7 @@ export default function Contact() {
     setCurrentStep(-1)
     setServiceName('')
     setContactEndpoint('')
+    setCopied(false)
   }
 
   return (
@@ -161,11 +169,38 @@ export default function Contact() {
                   >
                     CONNECTION ESTABLISHED
                   </div>
-                  <p className="font-sans text-sm text-muted mb-6">
-                    Email client opened. Message pre-filled and ready to send.
+                  <p className="font-sans text-sm text-muted mb-8">
+                    If your email client didn't open automatically, use the manual options below:
                   </p>
-                  <button onClick={reset} className="btn-outline text-xs">
-                    NEW REQUEST
+                  
+                  <div className="flex flex-col gap-3 justify-center max-w-xs mx-auto mb-8">
+                    <a 
+                      href={`mailto:agarkarvedant@gmail.com?subject=${encodeURIComponent(`Service Request: ${serviceName}`)}&body=${encodeURIComponent(
+                        `Hi Vedant,\n\nI'm reaching out regarding: ${serviceName}\n\nContact: ${contactEndpoint}\n\nLet's connect!`
+                      )}`} 
+                      className="btn-outline text-xs justify-center"
+                    >
+                      OPEN MAIL APP
+                    </a>
+                    <button 
+                      onClick={copyEmail}
+                      className="btn-outline text-xs justify-center"
+                    >
+                      {copied ? 'EMAIL COPIED !' : 'COPY EMAIL ADDRESS'}
+                    </button>
+                    <a 
+                      href={`https://wa.me/919561924895?text=${encodeURIComponent(`Hi Vedant,\n\nI'm reaching out regarding: ${serviceName}.\n\nYou can reach me at: ${contactEndpoint}`)}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn-outline text-xs justify-center"
+                      style={{ borderColor: 'rgba(37, 211, 102, 0.5)', color: '#25D366' }}
+                    >
+                      SEND VIA WHATSAPP
+                    </a>
+                  </div>
+
+                  <button onClick={reset} className="font-mono text-xs text-muted hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
+                    ← START NEW REQUEST
                   </button>
                 </motion.div>
               )}
