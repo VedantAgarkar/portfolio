@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: '#C8FF00',
+        accent: 'var(--color-accent-hex)',
         bg: '#0A0A0A',
         surface: '#111111',
         muted: '#666666',

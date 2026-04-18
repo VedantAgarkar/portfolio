@@ -1,3 +1,10 @@
+:root {
+  --color-accent-hex: #C8FF00;
+  --color-accent-r: 200;
+  --color-accent-g: 255;
+  --color-accent-b: 0;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
@@ -46,7 +53,7 @@ body {
   height: 4px;
   background: linear-gradient(
     transparent,
-    rgba(200, 255, 0, 0.06),
+    rgba(var(--color-accent-r), var(--color-accent-g), var(--color-accent-b), 0.06),
     transparent
   );
   animation: scan 5s linear infinite;
@@ -55,17 +62,17 @@ body {
 }
 
 /* ─── Accent Color ─── */
-.text-accent { color: #C8FF00; }
-.bg-accent { background-color: #C8FF00; }
-.border-accent { border-color: #C8FF00; }
+.text-accent { color: var(--color-accent-hex); }
+.bg-accent { background-color: var(--color-accent-hex); }
+.border-accent { border-color: var(--color-accent-hex); }
 
 /* ─── Neon Glow ─── */
 .glow-accent {
-  box-shadow: 0 0 20px rgba(200, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(var(--color-accent-r), var(--color-accent-g), var(--color-accent-b), 0.3);
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(200, 255, 0, 0.5);
+  text-shadow: 0 0 30px rgba(var(--color-accent-r), var(--color-accent-g), var(--color-accent-b), 0.5);
 }
 
 /* ─── Section Border ─── */
@@ -76,7 +83,7 @@ body {
 /* ─── Terminal Cursor ─── */
 .terminal-cursor::after {
   content: '_';
-  color: #C8FF00;
+  color: var(--color-accent-hex);
   animation: blink 1s step-end infinite;
 }
 
@@ -85,7 +92,7 @@ body {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: #C8FF00;
+  background: var(--color-accent-hex);
   border-radius: 50%;
   animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -106,12 +113,12 @@ body {
   background: #0A0A0A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8FF00;
+  background: var(--color-accent-hex);
 }
 
 /* ─── Selection ─── */
 ::selection {
-  background: #C8FF00;
+  background: var(--color-accent-hex);
   color: #000;
 }
 
@@ -121,8 +128,8 @@ body {
 .tag {
   display: inline-block;
   padding: 2px 10px;
-  border: 1px solid rgba(200, 255, 0, 0.4);
-  color: #C8FF00;
+  border: 1px solid rgba(var(--color-accent-r), var(--color-accent-g), var(--color-accent-b), 0.4);
+  color: var(--color-accent-hex);
   font-family: 'Space Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.05em;
@@ -134,7 +141,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #C8FF00;
+  background: var(--color-accent-hex);
   color: #000;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -170,8 +177,8 @@ body {
 }
 
 .btn-outline:hover {
-  border-color: #C8FF00;
-  color: #C8FF00;
+  border-color: var(--color-accent-hex);
+  color: var(--color-accent-hex);
 }
 
 /* ─── Metric Bar ─── */
@@ -184,7 +191,7 @@ body {
 
 .metric-bar-fill {
   height: 100%;
-  background: #C8FF00;
+  background: var(--color-accent-hex);
   transform-origin: left;
 }
 
@@ -210,7 +217,7 @@ body {
 }
 
 .sys-input:focus {
-  border-bottom-color: #C8FF00;
+  border-bottom-color: var(--color-accent-hex);
 }
 
 .sys-input::placeholder {
