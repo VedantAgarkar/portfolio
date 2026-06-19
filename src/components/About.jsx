@@ -404,14 +404,14 @@ export default function About() {
                 <h4 className="font-sans font-bold text-lg mb-1">Diploma in Computer Science</h4>
                 <p className="font-sans text-sm text-muted mb-4">Padm. Dr. V. B. Kolte College of Engineering (MSBTE)</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
-                  {[{ s: '1ST SEM', v: '81.29%' },{ s: '2ND SEM', v: '78.00%' },{ s: '3RD SEM', v: '86.00%' },{ s: '4TH SEM', v: '84.24%' },{ s: '5TH SEM', v: '92.82%' }].map(s => (
+                  {[{ s: '1ST SEM', v: '81.29%' },{ s: '2ND SEM', v: '78.00%' },{ s: '3RD SEM', v: '86.00%' },{ s: '4TH SEM', v: '84.24%' },{ s: '5TH SEM', v: '92.82%' },{ s: '6TH SEM', v: '96.71%' }].map(s => (
                     <div key={s.s} className="bg-white/5 border border-white/10 p-3 rounded-sm text-center">
                       <div className="font-mono text-[10px] text-accent mb-1">{s.s}</div>
                       <div className="font-sans font-black text-sm">{s.v}</div>
                     </div>
                   ))}
                 </div>
-                <div className="font-mono text-xs text-muted">Expected: 2026</div>
+                <div className="font-mono text-xs text-muted">Completed 2026</div>
               </div>
               <div className="relative pl-8">
                 <div className="absolute left-0 top-2 w-3.5 h-3.5 rounded-full bg-muted border-4 border-[#0e0e0e]" />
