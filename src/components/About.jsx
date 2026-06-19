@@ -360,7 +360,7 @@ export default function About() {
               management on a laptop — I care about outcomes, not abstractions.
             </p>
             <div className="grid grid-cols-3 gap-6">
-              {[{ v: '4', l: 'SYSTEMS SHIPPED' }, { v: '2', l: 'INTERNSHIPS' }, { v: '55Mbps', l: 'PEAK THROUGHPUT' }].map(s => (
+              {[{ v: '4', l: 'SYSTEMS SHIPPED' }, { v: '2', l: 'INTERNSHIPS' }, { v: '10+', l: 'FREELANCE PROJECTS' }].map(s => (
                 <div key={s.l} className="border-t pt-4" style={{ borderColor: 'rgba(200,255,0,0.3)' }}>
                   <div className="font-sans font-black text-2xl mb-1" style={{ color: '#C8FF00' }}>{s.v}</div>
                   <div className="font-mono text-xs text-muted tracking-widest">{s.l}</div>
