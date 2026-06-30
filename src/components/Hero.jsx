@@ -1,11 +1,25 @@
+import { useState, useEffect } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { motion } from 'framer-motion'
+import RubiksCube from './RubiksCube'
 
 export default function Hero() {
+  const [isDesktop, setIsDesktop] = useState(true)
+
+  useEffect(() => {
+    const checkSize = () => {
+      setIsDesktop(window.innerWidth >= 1024)
+    }
+    checkSize()
+    window.addEventListener('resize', checkSize)
+    return () => window.removeEventListener('resize', checkSize)
+  }, [])
+
   const handleScroll = (href) => {
     const el = document.querySelector(href)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
 
   return (
     <section
@@ -87,6 +101,17 @@ export default function Hero() {
             repeat={Infinity}
           />
         </motion.div>
+
+        {!isDesktop && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="w-full max-w-[320px] mx-auto mb-8 block lg:hidden"
+          >
+            <RubiksCube />
+          </motion.div>
+        )}
 
         {/* CTA Buttons */}
         <motion.div
